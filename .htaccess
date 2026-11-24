@@ -1,0 +1,11 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /focus/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api\.php/(.*)$ api.php/$1 [QSA,L]
+</IfModule>
+<FilesMatch "^(\.env|composer\.(json|lock))$">
+Require all denied
+</FilesMatch>
